@@ -46,9 +46,6 @@
 [submodule "extensions/datetime"]
 	path = extensions/datetime
 	url = https://github.com/DeuxHuitHuit/datetime.git
-[submodule "extensions/editor_for_symphony"]
-	path = extensions/editor_for_symphony
-	url = https://github.com/symphonists/editor_for_symphony.git
 [submodule "extensions/simplemde"]
 	path = extensions/simplemde
 	url = https://github.com/animaux/simplemde.git
