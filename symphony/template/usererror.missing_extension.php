@@ -1,7 +1,5 @@
 <?php
 
-include_once TOOLKIT . '/class.htmlpage.php';
-
 $match = "";
 $rename_failed = false;
 
@@ -39,7 +37,7 @@ if (isset($_POST['extension-missing'])) {
     if (isset($_POST['action']['delete'])) {
         Symphony::ExtensionManager()->cleanupDatabase();
         $redirect = true;
-    } else if (isset($_POST['action']['rename']) && $match != "") {
+    } elseif (isset($_POST['action']['rename']) && $match != "") {
         $path = ExtensionManager::__getDriverPath($match);
 
         if (!@rename(EXTENSIONS . '/' . $match, EXTENSIONS . '/' . $e->getAdditional()->name)) {
@@ -58,7 +56,7 @@ $Page = new HTMLPage();
 $Page->Html->setElementStyle('html');
 
 $Page->Html->setDTD('<!DOCTYPE html>');
-$Page->Html->setAttribute('xml:lang', 'en');
+$Page->Html->setAttribute('lang', 'en');
 $Page->addElementToHead(new XMLElement('meta', null, array('http-equiv' => 'Content-Type', 'content' => 'text/html; charset=UTF-8')), 0);
 $Page->addStylesheetToHead(ASSETS_URL . '/css/symphony.min.css', 'screen', null, false);
 
@@ -102,7 +100,7 @@ if ($match != "" && $rename_failed) {
     );
 }
 // If we've found a similar folder
-else if ($match != "") {
+elseif ($match != "") {
     $div->appendChild(
         new XMLElement('p', __('Often the cause of this error is a misnamed extension folder. You can try renaming %s to %s, or you can uninstall the extension to continue.', array(
             '<code>extensions/' . $match . '</code>',
