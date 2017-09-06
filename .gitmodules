@@ -96,4 +96,4 @@
 	url = https://github.com/ahwayakchih/templatedtextformatters.git
 [submodule "extensions/textboxfield"]
 	path = extensions/textboxfield
-	url = https://github.com/psychoticmeow/textboxfield.git
+	url = https://github.com/symphonists/textboxfield.git
