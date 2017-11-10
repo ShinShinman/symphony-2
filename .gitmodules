@@ -97,3 +97,6 @@
 [submodule "extensions/textboxfield"]
 	path = extensions/textboxfield
 	url = https://github.com/symphonists/textboxfield.git
+[submodule "extensions/backend_assets"]
+	path = extensions/backend_assets
+	url = https://github.com/animaux/backend_assets.git
