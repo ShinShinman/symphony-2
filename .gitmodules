@@ -40,9 +40,6 @@
 [submodule "extensions/association_ui_selector"]
 	path = extensions/association_ui_selector
 	url = https://github.com/mazedigital/association_ui_selector.git
-[submodule "extensions/backend_add_script"]
-	path = extensions/backend_add_script
-	url = https://github.com/TwistedInteractive/backend_add_script.git
 [submodule "extensions/datetime"]
 	path = extensions/datetime
 	url = https://github.com/DeuxHuitHuit/datetime.git
@@ -97,9 +94,6 @@
 [submodule "extensions/textboxfield"]
 	path = extensions/textboxfield
 	url = https://github.com/symphonists/textboxfield.git
-[submodule "extensions/backend_assets"]
-	path = extensions/backend_assets
-	url = https://github.com/animaux/backend_assets.git
 [submodule "extensions/reflectionfield"]
 	path = extensions/reflectionfield
 	url = https://github.com/symphonists/reflectionfield.git
