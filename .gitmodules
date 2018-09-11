@@ -100,3 +100,27 @@
 [submodule "extensions/backend_assets"]
 	path = extensions/backend_assets
 	url = https://github.com/animaux/backend_assets.git
+[submodule "extensions/reflectionfield"]
+	path = extensions/reflectionfield
+	url = https://github.com/symphonists/reflectionfield.git
+[submodule "extensions/extension_downloader"]
+	path = extensions/extension_downloader
+	url = https://github.com/DeuxHuitHuit/extension_downloader.git
+[submodule "extensions/search_index"]
+	path = extensions/search_index
+	url = https://github.com/symphonists/search_index.git
+[submodule "extensions/mailchimp"]
+	path = extensions/mailchimp
+	url = https://github.com/lewiswharf/mailchimp.git
+[submodule "extensions/ip_localisation"]
+	path = extensions/ip_localisation
+	url = https://github.com/pixelninja/ip_localisation.git
+[submodule "extensions/hashid_field"]
+	path = extensions/hashid_field
+	url = https://github.com/nathanhornby/hashid_field.git
+[submodule "extensions/email_template_manager"]
+	path = extensions/email_template_manager
+	url = https://github.com/michael-e/email_template_manager.git
+[submodule "extensions/author_roles"]
+	path = extensions/author_roles
+	url = https://github.com/TwistedInteractive/author_roles.git
