@@ -115,3 +115,6 @@
 [submodule "extensions/email_template_manager"]
 	path = extensions/email_template_manager
 	url = https://github.com/michael-e/email_template_manager.git
+[submodule "extensions/author_roles"]
+	path = extensions/author_roles
+	url = https://github.com/ShinShinman/author_roles.git
