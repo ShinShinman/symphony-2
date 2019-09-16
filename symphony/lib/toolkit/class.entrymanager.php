@@ -414,11 +414,11 @@ class EntryManager
 
         // Handle Creation Date or the old Date sorting
         } elseif (self::$_fetchSortField === 'system:creation-date' || self::$_fetchSortField === 'date') {
-            $sort = sprintf('ORDER BY `e`.`creation_date_gmt` %s', self::$_fetchSortDirection);
+            $sort = sprintf('ORDER BY `e`.`creation_date` %s', self::$_fetchSortDirection);
 
         // Handle Modification Date sorting
         } elseif (self::$_fetchSortField === 'system:modification-date') {
-            $sort = sprintf('ORDER BY `e`.`modification_date_gmt` %s', self::$_fetchSortDirection);
+            $sort = sprintf('ORDER BY `e`.`modification_date` %s', self::$_fetchSortDirection);
 
         // Handle sorting for System ID
         } elseif (self::$_fetchSortField == 'system:id' || self::$_fetchSortField == 'id') {
@@ -448,7 +448,14 @@ class EntryManager
         }
 
         if ($entry_id && !is_array($entry_id)) {
-            $entry_id = array($entry_id);
+            // The entry ID may be a comma-separated string, so explode it to make it
+            // a proper array
+            $entry_id = explode(',', $entry_id);
+        }
+
+        // An existing entry ID will be an array now, and we can force integer values
+        if ($entry_id) {
+            $entry_id = array_map(array('General', 'intval'), $entry_id);
         }
 
         $sql = sprintf("

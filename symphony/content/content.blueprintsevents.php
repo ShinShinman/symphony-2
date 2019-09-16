@@ -113,6 +113,7 @@ class contentBlueprintsEvents extends ResourcesPage
             $canonical_link = '/blueprints/events/' . $this->_context[0] . '/' . $handle . '/';
         }
 
+        $name = null;
         // Handle name on edited changes, or from reading an edited datasource
         if (isset($about['name'])) {
             $name = $about['name'];
@@ -416,6 +417,8 @@ class contentBlueprintsEvents extends ResourcesPage
             $this->_errors['name'] = __('This is a required field');
         } elseif (strpos($fields['name'], '\\') !== false) {
             $this->_errors['name'] = __('This field contains invalid characters') . ' (\\)';
+        } elseif (!preg_match('/^[a-z]/i', $fields['name'])) {
+            $this->_errors['name'] = __('The name of the event must begin with a letter.');
         }
 
         if (trim($fields['source']) == '') {
@@ -436,7 +439,7 @@ class contentBlueprintsEvents extends ResourcesPage
             }
         }
 
-        $classname = Lang::createHandle($fields['name'], 255, '_', false, true, array('@^[^a-z\d]+@i' => '', '/[^\w-\.]/i' => ''));
+        $classname = Lang::createHandle($fields['name'], 255, '_', false, true, array('@^[^a-z\d]+@i' => '', '/[^\w\-\.]/i' => ''));
         $rootelement = str_replace('_', '-', $classname);
         $extends = 'SectionEvent';
 
@@ -605,7 +608,7 @@ class contentBlueprintsEvents extends ResourcesPage
                 // Write successful
             } else {
                 if (function_exists('opcache_invalidate')) {
-                    opcache_invalidate($file, true);
+                    @opcache_invalidate($file, true);
                 }
 
                 // Attach this event to pages

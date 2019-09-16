@@ -485,10 +485,6 @@ class FieldDate extends Field implements ExportableField, ImportableField
         $label->appendChild(Widget::Input("fields{$fieldnamePrefix}[{$name}]", $value));
         $label->setAttribute('class', 'date');
 
-        if (!is_null($flagWithError)) {
-            $label = Widget::Error($label, $flagWithError);
-        }
-
         // Calendar
         if ($this->get('calendar') === 'yes') {
             $wrapper->setAttribute('data-interactive', 'data-interactive');
@@ -505,6 +501,10 @@ class FieldDate extends Field implements ExportableField, ImportableField
             $label->appendChild($ul);
         }
 
+        // Wrap label in error
+        if (!is_null($flagWithError)) {
+            $label = Widget::Error($label, $flagWithError);
+        }
         $wrapper->appendChild($label);
     }
 
@@ -752,9 +752,10 @@ class FieldDate extends Field implements ExportableField, ImportableField
                     SELECT %s
                     FROM tbl_entries_data_%d AS `ed`
                     WHERE entry_id = e.id
-                ) %s',
+                ) %s, `e`.`id` %s',
                 '`ed`.date',
                 $this->get('id'),
+                $order,
                 $order
             );
         }
